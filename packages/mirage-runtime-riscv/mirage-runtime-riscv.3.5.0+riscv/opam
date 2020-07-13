@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   ["anil@recoil.org" "thomas@gazagnaire.org"]
+maintainer:   "Sai Venkata Krishnan <saiganesha5.svkv@gmail.com>"
 authors:      ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
                "Mindy Preston" "Thomas Leonard" "Nicolas Ojeda Bar"
                "Dave Scott" "David Kaloper" "Hannes Mehnert" "Richard Mortier"]
@@ -12,17 +12,18 @@ doc:          "https://mirage.github.io/mirage/"
 
 build: [
   ["dune" "subst"] {pinned}
-  ["dune" "build" "-p" name "-j" jobs]
-  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
+  ["dune" "build" "-x" "riscv" "-p" "mirage-runtime" "-j" jobs]
+  ["dune" "runtest" "-p" "mirage-runtime" "-j" jobs] {with-test}
 ]
 
 depends: [
-  "ocaml" {>= "4.04.2"}
+  "ocaml" {>= "4.07.0"}
   "dune" {build & >= "1.1.0"}
-  "ipaddr"             {>= "3.0.0" & < "5.0.0"}
-  "functoria-runtime"  {>= "2.2.4" & < "3.0.3"}
-  "fmt"
-  "logs"
+  "ocaml-riscv"
+  "ipaddr-riscv"
+  "functoria-runtime-riscv"
+  "fmt-riscv"
+  "logs-riscv"
 ]
 synopsis: "The base MirageOS runtime library, part of every MirageOS unikernel"
 description: """
@@ -32,7 +33,7 @@ url {
   src:
     "https://github.com/mirage-shakti-iitm/mirage/archive/v3.5.0+riscv.tar.gz"
   checksum: [
-    "md5=6ede5f7c849ccc3e12d67f59c8a6edb4"
-    "sha512=4e0be1249c2c058ef348c40e84fe8b63e20e57c9b2bf1d84c26d65ab076b6bfa4e1fc2b5c36d2710274fe44b02ec9e15104951c0f6cfb75aa19ef9bcc3f6d558"
+    "md5=66d7b5dc2e011531851f7715faf05f5b"
+    "sha512=f969ea58c543df3861d65d94ea81cc775a478e1a25d73e5d0a32aea406df71a466c523ab03579f8f8ed456554d14a87f51e3284bfb9a62e53846d809b6e228cf"
   ]
 }
